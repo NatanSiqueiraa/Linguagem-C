@@ -1,27 +1,37 @@
+
+//carro novo = preço de fábrica(percentual do lucro do distribuidor) + impostos aplicados ao preço de fábrica 
 #include <stdio.h>
 
 int main(){
-    int preco_fabri;
-    int distribuidor;
-    int imposto;
-    int lucro_distri;
+    float veiculoF;
+    float distribuidor;
+    float imposto;
+    float custo_consumidor;
 
-    printf("Qual é o valor de fabrica do produto? ");
-    scanf("%i", &preco_fabri);
+    printf("Qual e o preco de fabrica do veiculo? ");
+    scanf("%f", &veiculoF);
 
-    printf("Qual é o porcentual de lucro do distribuidor? ");
-    scanf("%i", &distribuidor);
+    printf("Diga qual e o percentual de lucro do consumidor: ");
+    scanf("%f", &distribuidor);
 
-    printf("Qual é percentual de imposto do produto? ");
-    scanf("%i", &imposto);
+    printf("Qual e o percentual de imposto: ");
+    scanf("%f", &imposto);
 
-    lucro_distri = (preco_fabri * (imposto / 100)) * distribuidor / 100;
+    distribuidor = distribuidor / 100;
+    imposto = imposto / 100;
 
-    printf("%i", lucro_distri);
+    custo_consumidor = veiculoF + (veiculoF * distribuidor) + (veiculoF * imposto );
+    distribuidor = veiculoF + (veiculoF * distribuidor) - veiculoF;
+    imposto = veiculoF + (veiculoF * imposto) - veiculoF;
+
+    printf("O valor que corresponde ao lucro do distribuidor e %f\n", distribuidor);
+
+    printf("O valor que corresponde aos impostos sao %f\n", imposto);
+
+    printf("O custo do consumidor e %f\n", custo_consumidor);
 
 
-
-
-
+    return 0;
 
 }
+
